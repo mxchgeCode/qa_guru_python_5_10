@@ -5,6 +5,7 @@ from selene import browser
 from selene.support.shared.jquery_style import s
 from allure_commons.types import Severity
 
+
 @allure.severity(Severity.CRITICAL)
 def test_github_selene():
     browser.open("https://github.com")
@@ -15,8 +16,8 @@ def test_github_selene():
     s("#issues-tab").click()
     browser.all('#issue_81_link').element_by(have.exact_text('issue_to_test_allure_report'))
 
-def test_dynamic_steps():
 
+def test_dynamic_steps():
     with allure.step("Открываем главную страницу"):
         browser.open("https://github.com")
 
@@ -64,6 +65,7 @@ def go_to_repository(repo):
 @allure.step("Открываем таб Issues")
 def open_issue_tab():
     s("#issues-tab").click()
+
 
 @allure.severity(Severity.CRITICAL)
 @allure.step("Проверяем название Issue с номером {number}")
